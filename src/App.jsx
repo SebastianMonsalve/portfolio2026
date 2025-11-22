@@ -1,35 +1,28 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import NeonLight from "./assets/components/NeonLight.jsx";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative w-screen min-h-screen bg-[#030303] overflow-hidden">
+      <div className="grainy-overlay"></div>
+      <NeonLight color="#ff2d95" className="-top-[200px] -left-[150px]" />
+      <NeonLight color="#4f46e5" className="-bottom-[200px] -right-[100px]" />
+      <NeonLight color="#00eaff" className="top-[40%] left-[60%]" />
+      <div className="relative z-10 p-10">
+        <h1 className="text-3xl font-bold text-white">Hello World!</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <h1 class="text-3xl font-bold underline text-amber-300">Hello world!</h1>
-    </>
+
+      <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+        <filter id="grainy">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency=".537"
+            numOctaves="4"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+          <feBlend in="SourceGraphic" mode="multiply" />
+        </filter>
+      </svg>
+    </div>
   );
 }
-
-export default App;

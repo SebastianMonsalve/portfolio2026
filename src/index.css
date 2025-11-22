@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@import "tailwindcss";
+
+.grainy-overlay {
+  position: absolute;
+  inset: 0;
+  filter: url(#grainy);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 10;
+}
