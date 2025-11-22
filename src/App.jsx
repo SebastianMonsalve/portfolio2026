@@ -1,28 +1,37 @@
-import NeonLight from "./assets/components/NeonLight.jsx";
+import NeonLight from "./components/NeonLight.jsx";
+import Nav from "./components/Nav.jsx";
+import Home from "./pages/Home.jsx";
+import Work from "./pages/Work.jsx";
+import About from "./pages/About.jsx";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="relative w-screen min-h-screen bg-[#030303] overflow-hidden">
-      <div className="grainy-overlay"></div>
-      <NeonLight color="#ff2d95" className="-top-[200px] -left-[150px]" />
-      <NeonLight color="#4f46e5" className="-bottom-[200px] -right-[100px]" />
-      <NeonLight color="#00eaff" className="top-[40%] left-[60%]" />
-      <div className="relative z-10 p-10">
-        <h1 className="text-3xl font-bold text-white">Hello World!</h1>
-      </div>
-
-      <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
-        <filter id="grainy">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency=".537"
-            numOctaves="4"
-            stitchTiles="stitch"
+    <Router>
+      <section
+        className={`relative w-auto h-auto bg-neonBlack overflow-x-hidden`}
+      >
+        <div className="grainy-overlay"></div>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <NeonLight color="bg-neonRed" size={400} top={-100} left={-50} />
+          <NeonLight
+            color="bg-neonMagenta"
+            size={300}
+            bottom={-150}
+            left={-50}
           />
-          <feColorMatrix type="saturate" values="0" />
-          <feBlend in="SourceGraphic" mode="multiply" />
-        </filter>
-      </svg>
-    </div>
+          <NeonLight color="bg-neonOrange" size={400} top={200} right={-300} />
+        </div>
+
+        <div className="w-screen min-h-screen z-10 relative">
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </section>
+    </Router>
   );
 }

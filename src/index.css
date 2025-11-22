@@ -1,12 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 
-@import "tailwindcss";
+@theme {
+  --color-neonBlack: #070707;
+  --color-neonWhite: #ffffff;
+  --color-neonRed: #ff003c;
+  --color-neonMagenta: #ff41e1;
+  --color-neonOrange: #ff9d00;
+}
 
 .grainy-overlay {
   position: absolute;
   inset: 0;
-  filter: url(#grainy);
-  opacity: 0.12;
+  background-image: url("/noise.png");
+  opacity: 0.2;
   pointer-events: none;
-  z-index: 10;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+}
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+p,
+a,
+span,
+li,
+button {
+  font-family: "Sora", sans-serif;
+}
+
+.neon {
+  opacity: 0.35;
+  filter: blur(100px);
+  mix-blend-mode: screen;
+  animation: neonPulse 8s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
 }
