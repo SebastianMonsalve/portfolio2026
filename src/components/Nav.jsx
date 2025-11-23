@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const options = [
   { link: "/", label: "Home" },
-  { link: "/work", label: "Work" },
   { link: "/about", label: "About" },
+  { link: "/skills", label: "Skills" },
+  { link: "/work", label: "Work" },
+  { link: "/journey", label: "Journey" },
 ];
 
 const Nav = () => {
@@ -29,12 +31,12 @@ const Nav = () => {
 
   return (
     <nav
-      className={`bg-transparent h-16 w-full fixed top-0 left-0 z-50 p-4 flex items-center justify-center transition-all duration-600
+      className={`bg-transparent h-16 md:h-20 w-full fixed top-0 left-0 z-50 p-4 flex items-center justify-center transition-all duration-600
       ${isScrolled ? "backdrop-blur-sm bg-neonBlack/30 shadow-md" : ""}`}
     >
-      <section className="w-full flex items-center justify-between">
+      <section className="w-full flex items-center justify-between md:justify-around">
         <NavLink to="/" onClick={closeMenu} className="z-20">
-          <h1 className="text-neonWhite font-bold text-base">
+          <h1 className="text-neonWhite font-bold text-base md:text-lg tracking-wide">
             SEBASTIAN MONSALVE
           </h1>
         </NavLink>
@@ -90,8 +92,8 @@ const Nav = () => {
               key={i}
               to={item.link}
               className={({ isActive }) =>
-                `text-neonWhite transition-all hover:opacity-80 ${
-                  isActive ? "font-bold" : ""
+                `text-neonWhite text-lg transition-all hover:opacity-80 ${
+                  isActive ? "underline" : ""
                 }`
               }
             >

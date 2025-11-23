@@ -13,14 +13,26 @@ export default function App() {
       >
         <div className="grainy-overlay"></div>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <NeonLight color="bg-neonRed" size={400} top={-100} left={-50} />
           <NeonLight
-            color="bg-neonMagenta"
-            size={300}
-            bottom={-150}
-            left={-50}
+            color="bg-neon1"
+            size={500}
+            className="top-[-200px] left-[-150px]"
           />
-          <NeonLight color="bg-neonOrange" size={400} top={200} right={-300} />
+          <NeonLight
+            color="bg-neon4"
+            size={400}
+            className="bottom-[-250px] left-[-200px] md:left-[300px]"
+          />
+          <NeonLight
+            color="bg-neon3"
+            size={500}
+            className="top-[200px] right-[-400px]"
+          />
+          <NeonLight
+            color="md:bg-neon2"
+            size={250}
+            className="top-[60px] right-[350px]"
+          />
         </div>
 
         <div className="w-screen min-h-screen z-10 relative">

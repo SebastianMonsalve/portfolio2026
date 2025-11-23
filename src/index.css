@@ -4,16 +4,17 @@
 @theme {
   --color-neonBlack: #070707;
   --color-neonWhite: #ffffff;
-  --color-neonRed: #ff003c;
-  --color-neonMagenta: #ff41e1;
-  --color-neonOrange: #ff9d00;
+  --color-neon1: #ff003c;
+  --color-neon2: #ff41e1;
+  --color-neon3: #ff9d00;
+  --color-neon4: #00ffe7;
 }
 
 .grainy-overlay {
   position: absolute;
   inset: 0;
   background-image: url("/noise.png");
-  opacity: 0.2;
+  opacity: 0.3;
   pointer-events: none;
   z-index: 1;
   mix-blend-mode: soft-light;
@@ -41,7 +42,7 @@ button {
 }
 
 .neon {
-  opacity: 0.35;
+  opacity: 0.45;
   filter: blur(100px);
   mix-blend-mode: screen;
   animation: neonPulse 8s ease-in-out infinite;
@@ -49,15 +50,24 @@ button {
 
 @keyframes neonPulse {
   0% {
-    opacity: 0.35;
+    opacity: 0.45;
     transform: scale(1);
   }
   50% {
-    opacity: 0.5;
-    transform: scale(0.8);
+    opacity: 0.6;
+    transform: scale(0.7);
   }
   100% {
-    opacity: 0.35;
+    opacity: 0.45;
     transform: scale(1);
   }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
