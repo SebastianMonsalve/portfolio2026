@@ -21,14 +21,15 @@ const Project = () => {
   const intervalRef = useRef(null);
   const videoRef = useRef(null);
 
-  // --- NUEVO: ref para el offset real leíble por handlers globales ---
   const dragOffsetRef = useRef(0);
 
-  // Refs para listeners estables
   const moveHandlerRef = useRef(null);
   const upHandlerRef = useRef(null);
   const touchMoveRef = useRef(null);
   const touchEndRef = useRef(null);
+
+  const thumbContainerRef = useRef(null);
+  const thumbRefs = useRef([]);
 
   const selectedMedia = media[currentIndex];
   const isVideo =
@@ -58,24 +59,43 @@ const Project = () => {
     }
 
     return () => clearInterval(intervalRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
-  // iniciar drag (mouse o touch)
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    if (isVideo) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+      v.currentTime = 0;
+    }
+  }, [currentIndex, isVideo]);
+
+  useEffect(() => {
+    const container = thumbContainerRef.current;
+    const activeThumb = thumbRefs.current[currentIndex];
+
+    if (container && activeThumb) {
+      activeThumb.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [currentIndex]);
+
   const handleStart = (x) => {
     if (isDragging.current) return;
 
     isDragging.current = true;
     startX.current = x;
 
-    // reset visual y ref
     setDragOffset(0);
     dragOffsetRef.current = 0;
 
-    // bloquear scroll
-    document.body.style.overflow = "hidden";
-
-    // handlers que referencian las refs (no cierres con estado)
     moveHandlerRef.current = (e) => {
       const clientX =
         typeof e.pageX === "number"
@@ -83,22 +103,20 @@ const Project = () => {
           : e.touches && e.touches[0]
           ? e.touches[0].clientX
           : null;
+
       if (clientX != null) {
         const diff = clientX - startX.current;
-        // actualizar estado (para render) Y la ref (para decidir en handleEnd)
         setDragOffset(diff);
         dragOffsetRef.current = diff;
       }
     };
 
-    upHandlerRef.current = () => {
-      // use dragOffsetRef inside handleEnd (no closed estado)
-      handleEnd();
-    };
+    upHandlerRef.current = () => handleEnd();
 
     touchMoveRef.current = (e) => {
       if (e.cancelable) e.preventDefault();
-      const clientX = e.touches && e.touches[0] ? e.touches[0].clientX : null;
+      const clientX = e.touches?.[0]?.clientX ?? null;
+
       if (clientX != null) {
         const diff = clientX - startX.current;
         setDragOffset(diff);
@@ -106,11 +124,8 @@ const Project = () => {
       }
     };
 
-    touchEndRef.current = () => {
-      handleEnd();
-    };
+    touchEndRef.current = () => handleEnd();
 
-    // registrar listeners globales
     window.addEventListener("mousemove", moveHandlerRef.current);
     window.addEventListener("mouseup", upHandlerRef.current);
     window.addEventListener("touchmove", touchMoveRef.current, {
@@ -119,7 +134,6 @@ const Project = () => {
     window.addEventListener("touchend", touchEndRef.current);
   };
 
-  // handleEnd ahora usa dragOffsetRef.current (valor actualizado)
   const handleEnd = () => {
     if (!isDragging.current) return;
     isDragging.current = false;
@@ -130,14 +144,10 @@ const Project = () => {
     if (actualOffset > threshold) nextSlide(-1);
     else if (actualOffset < -threshold) nextSlide(1);
 
-    // reset visual y ref
     setDragOffset(0);
     dragOffsetRef.current = 0;
-
-    // restaura scroll
     document.body.style.overflow = "";
 
-    // quitar listeners usando mismas referencias
     if (moveHandlerRef.current) {
       window.removeEventListener("mousemove", moveHandlerRef.current);
       moveHandlerRef.current = null;
@@ -151,11 +161,8 @@ const Project = () => {
         window.removeEventListener("touchmove", touchMoveRef.current, {
           passive: false,
         });
-      } catch (err) {
-        // fallback si navegador no acepta la firma con opciones
-        try {
-          window.removeEventListener("touchmove", touchMoveRef.current);
-        } catch (e) {}
+      } catch {
+        window.removeEventListener("touchmove", touchMoveRef.current);
       }
       touchMoveRef.current = null;
     }
@@ -175,106 +182,126 @@ const Project = () => {
 
   return (
     <section className="w-full min-h-[calc(100vh-4rem)] pt-16 relative md:grid md:grid-cols-2">
-      <div className="w-full md:p-20 md:py-10 flex flex-col items-center">
-        {/* AREA DE SLIDER */}
-        <div
-          className="w-full h-60 sm:h-80 md:h-auto overflow-hidden relative mb-3"
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleEnd}
-          style={{
-            cursor: isDragging.current ? "grabbing" : "grab",
-            userSelect: "none",
-            WebkitUserSelect: "none",
-            MozUserSelect: "none",
-          }}
-        >
+      <article className="w-full h-full flex items-center justify-center mb-10 md:mb-0">
+        <div className="w-full md:w-[70%] flex flex-col items-center">
           <div
-            className="flex w-full h-full"
+            className="w-full h-60 sm:h-90 md:h-auto overflow-hidden relative mb-2"
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleEnd}
             style={{
-              transform: `translateX(calc(${
-                -currentIndex * 100
-              }% + ${dragOffset}px))`,
-              transition: isDragging.current ? "none" : "transform 0.5s ease",
+              cursor: isDragging.current ? "grabbing" : "grab",
+              userSelect: "none",
             }}
+          >
+            <div
+              className="flex w-full h-full"
+              style={{
+                transform: `translateX(calc(${
+                  -currentIndex * 100
+                }% + ${dragOffset}px))`,
+                transition: isDragging.current ? "none" : "transform 0.5s ease",
+              }}
+            >
+              {media.map((item, index) => {
+                const isVid = item.endsWith(".webm") || item.endsWith(".mp4");
+                return (
+                  <div
+                    key={index}
+                    className="w-full flex-shrink-0 flex justify-center items-center relative"
+                  >
+                    {isVid ? (
+                      <video
+                        ref={currentIndex === index ? videoRef : null}
+                        src={item}
+                        preload="metadata"
+                        muted
+                        playsInline
+                        loop={!true}
+                        className="w-full h-full object-contain z-10"
+                      />
+                    ) : (
+                      <img
+                        src={item}
+                        alt=""
+                        className="w-full h-full object-contain z-10"
+                        draggable="false"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-neonBlack opacity-40 z-0"></div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* MINIATURAS */}
+          <div
+            ref={thumbContainerRef}
+            className="w-full flex gap-2 overflow-x-auto no-scrollbar flex-nowrap"
           >
             {media.map((item, index) => {
               const isVid = item.endsWith(".webm") || item.endsWith(".mp4");
+
               return (
-                <div
+                <button
                   key={index}
-                  className="w-full flex-shrink-0 flex justify-center items-center relative"
+                  onClick={() => goToSlide(index)}
+                  ref={(el) => (thumbRefs.current[index] = el)}
+                  className="flex-shrink-0 w-14 md:w-16 h-14 md:-16 overflow-hidden cursor-pointer"
                 >
                   {isVid ? (
                     <video
-                      ref={currentIndex === index ? videoRef : null}
                       src={item}
-                      autoPlay={currentIndex === index}
                       muted
                       playsInline
-                      loop={!true}
-                      className="w-full h-full object-contain z-10"
+                      draggable="false"
+                      className={`w-full h-full object-cover ${
+                        currentIndex === index
+                          ? "grayscale"
+                          : "opacity-50 hover:opacity-100"
+                      }`}
                     />
                   ) : (
                     <img
                       src={item}
                       alt=""
-                      className="w-full h-full object-contain z-10"
                       draggable="false"
+                      className={`w-full h-full object-cover ${
+                        currentIndex === index
+                          ? "grayscale"
+                          : "opacity-60 hover:opacity-100"
+                      }`}
                     />
                   )}
-                  <div className="absolute inset-0 bg-neonBlack opacity-40 z-0"></div>
-                </div>
+                </button>
               );
             })}
           </div>
         </div>
-
-        {/* MINIATURAS */}
-        <div className="w-full flex gap-2 overflow-x-auto no-scrollbar flex-nowrap">
-          {media.map((item, index) => {
-            const isVid = item.endsWith(".webm") || item.endsWith(".mp4");
-
-            return (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className="flex-shrink-0 w-16 h-16 overflow-hidden cursor-pointer"
-              >
-                {isVid ? (
-                  <video
-                    src={item}
-                    muted
-                    playsInline
-                    draggable="false"
-                    className={`w-full h-full object-cover ${
-                      currentIndex === index
-                        ? "grayscale"
-                        : "opacity-60 hover:opacity-100"
-                    }`}
-                  />
-                ) : (
-                  <img
-                    src={item}
-                    alt=""
-                    draggable="false"
-                    className={`w-full h-full object-cover ${
-                      currentIndex === index
-                        ? "grayscale"
-                        : "opacity-60 hover:opacity-100"
-                    }`}
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      </article>
 
       {/* LADO DERECHO */}
-      <div className="w-full">
-        <h1 className="text-neonWhite">title haoisdja asudaudw</h1>
-      </div>
+      <article className="w-full h-full flex flex-col justify-center items-center">
+        <div className="w-full md:w-[80%] flex flex-col gap-4">
+          <div className="flex flex-col">
+            <h2 className="text-neonGray font-medium uppercase text-base md:text-lg">
+              Mi Voz Escrita Web Application
+            </h2>
+            <h1 className="text-neonWhite font-bold text-3xl md:text-4xl text-balance">
+              Interactive blog platform with comments
+            </h1>
+          </div>
+          <div className="w-full flex flex-row gap-4">
+            <span className="px-4 py-2 rounded-2xl overflow-hidden relative">
+              <div className="absolute top-0 left-0 w-full h-full bg-neon1 opacity-80 saturate-20 z-0"></div>
+              <p className="text-sm text-neon1 relative z-10">
+                FullStack Developer
+              </p>
+            </span>
+          </div>
+        </div>
+      </article>
     </section>
   );
 };
