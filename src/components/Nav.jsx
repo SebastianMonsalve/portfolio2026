@@ -14,14 +14,15 @@ const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    let timeout;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setIsScrolled(window.scrollY > 50);
+      }, 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const closeMenu = () => {
@@ -32,7 +33,7 @@ const Nav = () => {
   return (
     <nav
       className={`bg-transparent h-16 md:h-20 w-full fixed top-0 left-0 z-50 p-4 flex items-center justify-center transition-all duration-600
-      ${isScrolled ? "backdrop-blur-sm bg-neonBlack/30 shadow-md" : ""}`}
+      ${isScrolled ? "backdrop-blur-xs bg-neonBlack/30 shadow-md" : ""}`}
     >
       <section className="w-full flex items-center justify-between md:justify-around">
         <NavLink to="/" onClick={closeMenu} className="z-20">

@@ -19,7 +19,7 @@ export default function App() {
             className="top-[-200px] left-[-150px]"
           />
           <NeonLight
-            color="bg-neon4"
+            color="bg-neon2"
             size={400}
             className="bottom-[-250px] left-[-200px] md:left-[300px]"
           />
@@ -29,7 +29,7 @@ export default function App() {
             className="top-[200px] right-[-400px]"
           />
           <NeonLight
-            color="md:bg-neon2"
+            color="md:bg-neon4"
             size={250}
             className="top-[60px] right-[350px]"
           />
