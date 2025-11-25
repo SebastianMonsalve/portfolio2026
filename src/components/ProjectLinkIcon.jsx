@@ -1,0 +1,20 @@
+// ProjectLinkIcon.jsx
+import React from "react";
+
+const ProjectLinkIcon = ({ href, Icon, bgClass, textClass }) => {
+  if (!href?.trim()) return null;
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="px-3 py-1 md:px-4 md:py-2 rounded-lg overflow-hidden relative flex items-center justify-center"
+    >
+      <div className={`${bgClass} absolute inset-0 opacity-20 saturate-40`} />
+      <Icon className={`${textClass} text-2xl md:text-3xl relative z-10`} />
+    </a>
+  );
+};
+
+export default ProjectLinkIcon;
