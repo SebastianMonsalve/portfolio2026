@@ -18,9 +18,7 @@ const Project = ({ project, index }) => {
       ? "bg-neon2"
       : colorKey === "neon3"
       ? "bg-neon3"
-      : colorKey === "neon4"
-      ? "bg-neon4"
-      : "";
+      : "bg-neon4";
 
   const textClass =
     colorKey === "neon1"
@@ -29,9 +27,7 @@ const Project = ({ project, index }) => {
       ? "text-neon2"
       : colorKey === "neon3"
       ? "text-neon3"
-      : colorKey === "neon4"
-      ? "text-neon4"
-      : "";
+      : "text-neon4";
 
   const isEven = index % 2 === 0;
 
