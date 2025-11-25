@@ -3,7 +3,7 @@ import { Link, GithubLogo, FigmaLogo } from "phosphor-react";
 import ProjectSlider from "./ProjectSlider.jsx";
 import ProjectLinkIcon from "./ProjectLinkIcon.jsx";
 
-const colors = ["neon1", "neon2", "neon3"];
+const colors = ["neon1", "neon2", "neon3", "neon4"];
 
 const Project = ({ project, index }) => {
   const media = project.media || [];
