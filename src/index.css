@@ -11,13 +11,13 @@
   --color-neon4: #ff41e1;
 }
 
-.grainy-overlay {
+.grainy-overlay::before {
+  content: "";
   position: absolute;
   inset: 0;
   background-image: url("/noise.png");
   opacity: 0.3;
   pointer-events: none;
-  z-index: 1;
   mix-blend-mode: soft-light;
 }
 

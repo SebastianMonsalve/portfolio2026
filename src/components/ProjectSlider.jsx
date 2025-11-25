@@ -180,7 +180,6 @@ const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
                     ref={currentIndex === i ? videoRef : null}
                     src={src}
                     preload="none"
-                    loading="lazy"
                     muted
                     playsInline
                     className="w-full h-full object-contain z-10"
@@ -219,6 +218,7 @@ const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
               {isVid ? (
                 <video
                   src={src}
+                  preload="none"
                   muted
                   className={`w-full h-full object-cover ${
                     active ? "grayscale" : "opacity-50"
