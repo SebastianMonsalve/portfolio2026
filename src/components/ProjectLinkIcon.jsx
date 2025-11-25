@@ -1,4 +1,3 @@
-// ProjectLinkIcon.jsx
 import React from "react";
 
 const ProjectLinkIcon = ({ href, Icon, bgClass, textClass }) => {

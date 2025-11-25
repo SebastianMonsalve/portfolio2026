@@ -1,7 +1,7 @@
 import React from "react";
 import { InView } from "react-intersection-observer";
 import Project from "../components/Project.jsx";
-import { projects } from "../data/projectsData";
+import { projects } from "../data/projectsData.js";
 
 const Work = () => {
   return (

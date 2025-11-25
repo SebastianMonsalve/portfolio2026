@@ -1,4 +1,3 @@
-// ProjectSlider.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
 
 const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {

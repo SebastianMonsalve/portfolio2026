@@ -1,4 +1,3 @@
-// Project.jsx
 import React, { useState } from "react";
 import { Link, GithubLogo, FigmaLogo } from "phosphor-react";
 import ProjectSlider from "./ProjectSlider.jsx";
