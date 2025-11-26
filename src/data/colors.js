@@ -1,0 +1,34 @@
+export const neonColors = [
+  {
+    key: "neon1",
+    bg: "bg-neon1",
+    bgSoft: "bg-neon1/10",
+    hoverBg: "hover:bg-neon1/15",
+    border: "border-neon1/15",
+    text: "text-neon1",
+  },
+  {
+    key: "neon2",
+    bg: "bg-neon2",
+    bgSoft: "bg-neon2/10",
+    hoverBg: "hover:bg-neon2/15",
+    border: "border-neon2/15",
+    text: "text-neon2",
+  },
+  {
+    key: "neon3",
+    bg: "bg-neon3",
+    bgSoft: "bg-neon3/10",
+    hoverBg: "hover:bg-neon3/15",
+    border: "border-neon3/15",
+    text: "text-neon3",
+  },
+  {
+    key: "neon4",
+    bg: "bg-neon4",
+    bgSoft: "bg-neon4/10",
+    hoverBg: "hover:bg-neon4/15",
+    border: "border-neon4/15",
+    text: "text-neon4",
+  },
+];

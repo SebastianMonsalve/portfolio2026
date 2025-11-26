@@ -1,38 +1,8 @@
 export const projects = [
   {
     id: "1",
-    subtitle: "Hotel invoicing platform: Hotel Billing System",
-    title:
-      "Hotel Billing and Management System with Room, Package, and Reservation Control",
-    role: ["Full Stack Developer"],
-    technologies: ["C#", "SQL Server"],
-    description:
-      "Hotel billing system for managing rooms, packages, reservations, and invoices. Simplifies booking workflows and speeds up invoice creation.",
-    media: ["/projects/project1 (9).mp4", "/projects/hbs1.webp"],
-    links: {
-      github: "https://github.com/SebastianMonsalve/project-POO",
-    },
-  },
-  {
-    id: "2",
-    subtitle: "Interactive educational platform: SwiftAdmin",
-    title:
-      "Web System for Content Management, File Review, and Multi-Role Administration",
-    role: ["Frontend Developer"],
-    technologies: ["React", "JavaScript", "CSS", "API Integration"],
-    description:
-      "Web platform where admins manage users and teachers upload course files. Admins review, approve, or provide feedback through a role-based workflow.",
-    media: ["/projects/project1 (9).mp4", "/projects/swift-admin1.webp"],
-    links: {
-      web: "https://file-manager-frontend.onrender.com/",
-      github: "https://github.com/GabrielOque/file-manager-frontend",
-    },
-  },
-  {
-    id: "3",
     subtitle: "Online multimedia gallery: Pixme",
-    title:
-      "Web Platform for Managing Photos, Videos, Favorites, and Account Recovery",
+    title: "Web Platform for Managing Photos, Videos and Favorites",
     role: ["Frontend Developer"],
     technologies: ["React", "JavaScript", "CSS", "API Integration"],
     description:
@@ -44,12 +14,12 @@ export const projects = [
     },
   },
   {
-    id: "4",
+    id: "2",
     subtitle: "Restaurant billing system: Elite",
     title:
       "Point-of-Sale and Billing System with Inventory, Staff Profiles, and PDF/Excel Reporting",
     role: ["Full Stack Developer"],
-    technologies: ["C#", "SQL Server"],
+    technologies: ["C#", "WinForms", "SQL Server"],
     description:
       "Restaurant POS system with staff profiles, secure login, payment tracking, PDF invoices, and inventory reports exportable to PDF and Excel.",
     media: ["/projects/project1 (9).mp4", "/projects/elite1.webp"],
@@ -58,7 +28,7 @@ export const projects = [
     },
   },
   {
-    id: "5",
+    id: "3",
     subtitle: "Product showcase landing page: Code Journey",
     title:
       "Interactive Landing Page for Showcasing Features, Onboarding, and App Download",
@@ -76,7 +46,7 @@ export const projects = [
     },
   },
   {
-    id: "6",
+    id: "4",
     subtitle: "Mobile learning app: Code Journey",
     title:
       "Interactive Mobile Application for Learning Programming Through Gamified Lessons",
@@ -92,7 +62,7 @@ export const projects = [
     },
   },
   {
-    id: "7",
+    id: "5",
     subtitle: "Interactive blog platform: Mi Voz Escrita",
     title:
       "Realtime Publishing Platform with Rich Text Editing, Filtering, and User Interaction",
@@ -113,18 +83,32 @@ export const projects = [
     },
   },
   {
-    id: "8",
+    id: "6",
     subtitle: "AI content generation assistant: Mentoria",
     title:
       "Interactive AI Assistant for Creating Scripts, Posts, Emails, Business Ideas, Code, and Translations",
-    role: ["Frontend Developer", "UI/UX Designer"],
+    role: ["Frontend Developer"],
     technologies: ["Python", "Streamlit", "OpenRouter API"],
     description:
-      "AI assistant that generates scripts, posts, emails, business ideas, code snippets, and translations with a customizable and user-friendly interface.",
+      "AI assistant that generates scripts, posts, emails, business ideas, code snippets, translations and customizable prompts, user-friendly interface.",
     media: ["/projects/project1 (9).mp4", "/projects/mentoria1.webp"],
     links: {
       web: "https://asistente-mentoria.streamlit.app/",
       github: "https://github.com/SebastianMonsalve/Assistant_AI_MentorIA",
+    },
+  },
+  {
+    id: "7",
+    subtitle: "Business services landing page: Digital a Tu Medida",
+    title:
+      "Modern Landing Page for Showcasing Digital Services, Portfolio, Values, and Client Contact",
+    role: ["Frontend Developer", "UI/UX Designer"],
+    technologies: ["React", "JavaScript", "CSS", "Google Analytics"],
+    description:
+      "Landing page presenting digital services, projects, company values, and a contact form linked to email. Includes strategic call-to-actions, Google Analytics integration, and a clean, modern design.",
+    media: ["/projects/project1 (9).mp4", "/projects/digital1.webp"],
+    links: {
+      web: "https://digitalatumedida.com/",
     },
   },
 ];

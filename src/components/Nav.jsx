@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const options = [
-  { link: "/", label: "Home" },
-  { link: "/about", label: "About" },
-  { link: "/skills", label: "Skills" },
   { link: "/work", label: "Work" },
+  { link: "/skills", label: "Skills" },
+  { link: "/about", label: "About" },
   { link: "/journey", label: "Journey" },
 ];
 
@@ -36,11 +35,19 @@ const Nav = () => {
       ${isScrolled ? "backdrop-blur-xs bg-neonBlack/30 shadow-md" : ""}`}
     >
       <section className="w-full flex items-center justify-between md:justify-around">
-        <NavLink to="/" onClick={closeMenu} className="z-20">
-          <h1 className="text-neonWhite font-bold text-base md:text-lg tracking-wide">
-            SEBASTIAN MONSALVE
-          </h1>
+        <NavLink
+          to="/"
+          onClick={closeMenu}
+          title="Return to Home"
+          className={({ isActive }) =>
+            `z-20 text-neonWhite font-medium text-base md:text-lg tracking-wide relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-neonWhite after:transition-all after:duration-300 hover:opacity-80 ${
+              isActive ? "after:w-[60%]" : ""
+            }`
+          }
+        >
+          <h1>SEBASTIAN MONSALVE</h1>
         </NavLink>
+
         <div
           className="flex flex-col gap-1 cursor-pointer md:hidden z-20 items-end"
           onClick={() => setIsOpen(!isOpen)}
@@ -75,8 +82,8 @@ const Nav = () => {
               key={i}
               to={item.link}
               className={({ isActive }) =>
-                `text-neonWhite text-2xl font-semibold transition-all ${
-                  isActive ? "underline" : ""
+                `text-neonWhite text-2xl font-semibold transition-all relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-neonWhite after:transition-all after:duration-300 hover:opacity-80 ${
+                  isActive ? "after:w-[60%]" : ""
                 }`
               }
               onClick={closeMenu}
@@ -93,8 +100,8 @@ const Nav = () => {
               key={i}
               to={item.link}
               className={({ isActive }) =>
-                `text-neonWhite text-lg transition-all hover:opacity-80 ${
-                  isActive ? "underline" : ""
+                `text-neonWhite text-lg transition-all relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-neonWhite after:transition-all after:duration-300 hover:opacity-80 ${
+                  isActive ? "after:w-[60%]" : ""
                 }`
               }
             >

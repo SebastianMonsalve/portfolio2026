@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { Play } from "phosphor-react";
 
-const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
+const ProjectSlider = ({
+  media = [],
+  currentIndex,
+  setCurrentIndex,
+  thumbColor,
+}) => {
   const videoRef = useRef(null);
   const autoSlide = useRef(null);
   const isDragging = useRef(false);
@@ -145,7 +151,7 @@ const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
 
   return (
     <div
-      className="w-full md:w-[70%] flex flex-col items-center"
+      className="w-full md:w-[90%] lg:w-[80%] xl:w-[70%] flex flex-col items-center"
       ref={sliderRef}
     >
       {/* SLIDES */}
@@ -173,7 +179,7 @@ const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
             return (
               <div
                 key={i}
-                className="w-full flex-shrink-0 relative flex items-center justify-center"
+                className="w-full shrink-0 relative flex items-center justify-center"
               >
                 {isVid ? (
                   <video
@@ -192,7 +198,7 @@ const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
                     draggable="false"
                   />
                 )}
-                <div className="absolute inset-0 bg-neonBlack opacity-40 z-0"></div>
+                <div className="absolute inset-0 bg-neonBlack/40 z-0"></div>
               </div>
             );
           })}
@@ -213,21 +219,23 @@ const ProjectSlider = ({ media = [], currentIndex, setCurrentIndex }) => {
               key={i}
               ref={(el) => (thumbRefs.current[i] = el)}
               onClick={() => goToSlide(i)}
-              className="w-14 md:w-16 h-14 md:h-16 flex-shrink-0 overflow-hidden cursor-pointer"
+              className="w-14 md:w-16 h-14 md:h-16 shrink-0 overflow-hidden cursor-pointer"
             >
               {isVid ? (
-                <video
-                  src={src}
-                  preload="none"
-                  muted
-                  className={`w-full h-full object-cover ${
-                    active ? "grayscale" : "opacity-50"
-                  }`}
-                />
+                <div
+                  className={`w-full h-full flex items-center justify-center relative`}
+                >
+                  <div
+                    className={`top-0 left-0 w-full h-full absolute hover:opacity-40 ${thumbColor} ${
+                      active ? "grayscale" : "opacity-10"
+                    } saturate-20}`}
+                  ></div>
+                  <Play className="z-10 text-neonWhite text-xl" />
+                </div>
               ) : (
                 <img
                   src={src}
-                  className={`w-full h-full object-cover ${
+                  className={`w-full h-full object-cover hover:opacity-80 ${
                     active ? "grayscale" : "opacity-50"
                   }`}
                   draggable="false"

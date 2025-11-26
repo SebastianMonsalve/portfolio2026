@@ -16,9 +16,18 @@
   position: absolute;
   inset: 0;
   background-image: url("/noise.png");
-  opacity: 0.3;
+  opacity: 0.5;
   pointer-events: none;
   mix-blend-mode: soft-light;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neonWhite) var(--color-neonBlack);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neonGray);
 }
 
 body {
@@ -44,7 +53,7 @@ button {
 
 .neon {
   opacity: 0.4;
-  filter: blur(80px);
+  filter: blur(85px);
   mix-blend-mode: screen;
   animation: neonPulse 8s ease-in-out infinite;
 }

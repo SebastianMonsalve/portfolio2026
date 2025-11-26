@@ -1,34 +1,13 @@
 import React, { useState } from "react";
-import { Link, GithubLogo, FigmaLogo } from "phosphor-react";
+import { ArrowSquareOut, GithubLogo, FigmaLogo } from "phosphor-react";
 import ProjectSlider from "./ProjectSlider.jsx";
 import ProjectLinkIcon from "./ProjectLinkIcon.jsx";
-
-const colors = ["neon1", "neon2", "neon3", "neon4"];
+import { neonColors } from "../data/colors";
 
 const Project = ({ project, index }) => {
   const media = project.media || [];
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const colorKey = colors[index % colors.length];
-
-  const bgClass =
-    colorKey === "neon1"
-      ? "bg-neon1"
-      : colorKey === "neon2"
-      ? "bg-neon2"
-      : colorKey === "neon3"
-      ? "bg-neon3"
-      : "bg-neon4";
-
-  const textClass =
-    colorKey === "neon1"
-      ? "text-neon1"
-      : colorKey === "neon2"
-      ? "text-neon2"
-      : colorKey === "neon3"
-      ? "text-neon3"
-      : "text-neon4";
-
+  const color = neonColors[index % neonColors.length];
   const isEven = index % 2 === 0;
 
   return (
@@ -42,6 +21,7 @@ const Project = ({ project, index }) => {
           media={media}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
+          thumbColor={color.bg}
         />
       </article>
 
@@ -67,10 +47,10 @@ const Project = ({ project, index }) => {
                 className="px-4 py-2 relative rounded-lg overflow-hidden"
               >
                 <div
-                  className={`${bgClass} absolute inset-0 opacity-20 saturate-40`}
+                  className={`${color.bg} absolute inset-0 opacity-20 saturate-40`}
                 />
                 <p
-                  className={`${textClass} text-xs md:text-sm font-medium relative z-10`}
+                  className={`${color.text} text-xs md:text-sm font-medium relative z-10`}
                 >
                   {r}
                 </p>
@@ -82,24 +62,39 @@ const Project = ({ project, index }) => {
             {project.description}
           </p>
 
+          <div className="w-full flex flex-row flex-wrap gap-1">
+            {project.technologies?.map((tech, i) => (
+              <span
+                key={i}
+                className="w-auto px-3 py-1 relative rounded-lg overflow-hidden flex items-center justify-center hover:bg-neonGray/10"
+              >
+                <div className="absolute w-full h-full bg-neonGray/20"></div>
+                <p className="text-xs md:text-sm text-neonWhite">{tech}</p>
+              </span>
+            ))}
+          </div>
+
           <div className="flex flex-row gap-2">
             <ProjectLinkIcon
               href={project.links?.figma}
               Icon={FigmaLogo}
-              bgClass={bgClass}
-              textClass={textClass}
+              bgClass={color.bg}
+              textClass={color.text}
+              title="Figma Prototype"
             />
             <ProjectLinkIcon
               href={project.links?.github}
               Icon={GithubLogo}
-              bgClass={bgClass}
-              textClass={textClass}
+              bgClass={color.bg}
+              textClass={color.text}
+              title="GitHub Repository"
             />
             <ProjectLinkIcon
               href={project.links?.web}
-              Icon={Link}
-              bgClass={bgClass}
-              textClass={textClass}
+              Icon={ArrowSquareOut}
+              bgClass={color.bg}
+              textClass={color.text}
+              title="Visit Website"
             />
           </div>
         </div>
