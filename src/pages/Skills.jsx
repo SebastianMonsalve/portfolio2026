@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { skillsByGroup } from "../data/skillsData";
-import { neonColors } from "../data/colors";
+import { skillsByGroup } from "../data/skillsData.js";
+import { neonColors } from "../data/colors.js";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 

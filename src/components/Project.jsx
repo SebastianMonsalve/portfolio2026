@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowSquareOut, GithubLogo, FigmaLogo } from "phosphor-react";
 import ProjectSlider from "./ProjectSlider.jsx";
 import ProjectLinkIcon from "./ProjectLinkIcon.jsx";
-import { neonColors } from "../data/colors";
+import { neonColors } from "../data/colors.js";
 
 const Project = ({ project, index }) => {
   const media = project.media || [];
