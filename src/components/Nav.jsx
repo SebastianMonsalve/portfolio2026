@@ -17,8 +17,8 @@ const Nav = () => {
     const handleScroll = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        setIsScrolled(window.scrollY > 50);
-      }, 50);
+        setIsScrolled(window.scrollY > 30);
+      }, 30);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -31,7 +31,7 @@ const Nav = () => {
 
   return (
     <nav
-      className={`bg-transparent h-16 md:h-20 w-full fixed top-0 left-0 z-50 p-4 flex items-center justify-center transition-all duration-600
+      className={`bg-transparent h-16 md:h-20 w-full fixed top-0 left-0 z-50 p-4 flex items-center justify-center transition-all duration-200
       ${isScrolled ? "backdrop-blur-xs bg-neonBlack/30 shadow-md" : ""}`}
     >
       <section className="w-full flex items-center justify-between md:justify-around">

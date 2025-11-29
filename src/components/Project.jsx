@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ArrowSquareOut, GithubLogo, FigmaLogo } from "phosphor-react";
 import ProjectSlider from "./ProjectSlider.jsx";
 import ProjectLinkIcon from "./ProjectLinkIcon.jsx";
+import TagList from "./TagList.jsx";
 import { neonColors } from "../data/colors.js";
 
 const Project = ({ project, index }) => {
@@ -11,7 +12,7 @@ const Project = ({ project, index }) => {
   const isEven = index % 2 === 0;
 
   return (
-    <section className="w-full min-h-[calc(100vh-4rem)] pt-16 relative md:grid md:grid-cols-2">
+    <section className="w-full min-h-[calc(100vh-4rem)] relative md:grid md:grid-cols-2">
       {/* LEFT - SLIDER */}
       <article
         className={`w-full h-full flex items-center justify-center mb-10 md:mb-0
@@ -39,41 +40,23 @@ const Project = ({ project, index }) => {
               {project.title}
             </h1>
           </div>
-
-          <div className="flex flex-row gap-2 flex-wrap">
-            {project.role?.map((r, i) => (
-              <span
-                key={i}
-                className="px-4 py-2 relative rounded-lg overflow-hidden"
-              >
-                <div
-                  className={`${color.bg} absolute inset-0 opacity-20 saturate-40`}
-                />
-                <p
-                  className={`${color.text} text-xs md:text-sm font-medium relative z-10`}
-                >
-                  {r}
-                </p>
-              </span>
-            ))}
-          </div>
-
+          <TagList
+            items={project.role}
+            wrapperClass="flex flex-row gap-2 flex-wrap"
+            itemClass="px-4 py-2"
+            bgClass={`${color.bg} opacity-20 saturate-40`}
+            textClass={`${color.text} text-xs md:text-sm font-medium`}
+          />
           <p className="text-neonWhite text-base md:text-xl">
             {project.description}
           </p>
-
-          <div className="w-full flex flex-row flex-wrap gap-1">
-            {project.technologies?.map((tech, i) => (
-              <span
-                key={i}
-                className="w-auto px-3 py-1 relative rounded-lg overflow-hidden flex items-center justify-center hover:bg-neonGray/10"
-              >
-                <div className="absolute w-full h-full bg-neonGray/20"></div>
-                <p className="text-xs md:text-sm text-neonWhite">{tech}</p>
-              </span>
-            ))}
-          </div>
-
+          <TagList
+            items={project.technologies}
+            wrapperClass="w-full flex flex-row flex-wrap gap-1"
+            itemClass="w-auto px-3 py-1 flex items-center justify-center"
+            bgClass="bg-neonGray/20"
+            textClass="text-xs md:text-sm text-neonWhite"
+          />
           <div className="flex flex-row gap-2">
             <ProjectLinkIcon
               href={project.links?.figma}

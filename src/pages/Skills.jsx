@@ -9,6 +9,10 @@ const Skills = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    document.title = "Skills | Sebastian Monsalve";
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (e) => {
       if (!containerRef.current?.contains(e.target)) {
         setActiveIndex(null);
@@ -25,13 +29,13 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-[calc(100vh-4rem)] pt-26 md:pt-36 flex flex-col items-center px-4 mb-14">
+    <section className="w-full min-h-[calc(100vh-4rem)] mt-8 md:mt-16 pt-16 flex flex-col items-center px-4 gap-4">
       {Object.entries(skillsByGroup).map(([groupName, groupSkills], groupI) => (
         <div
           key={groupI}
           className="w-full sm:w-[80%] md:w-[65%] lg:w-[50%] mb-10"
         >
-          <h1 className="text-xl font-bold text-center mb-6 text-neonWhite">
+          <h1 className="text-neonWhite font-bold text-center uppercase text-base md:text-xl mb-2">
             {groupName}
           </h1>
 
