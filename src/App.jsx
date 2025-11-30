@@ -5,6 +5,7 @@ import Work from "./pages/Work.jsx";
 import About from "./pages/About.jsx";
 import Skills from "./pages/Skills.jsx";
 import Journey from "./pages/Journey.jsx";
+import Banner from "./components/Banner.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -16,24 +17,39 @@ export default function App() {
         <div className="grainy-overlay"></div>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <NeonLight
+            color="md:bg-neon3"
+            size={300}
+            className="top-[60px] right-[350px]"
+          />
+          <NeonLight
             color="bg-neon1"
             size={500}
             className="top-[-200px] left-[-150px]"
           />
           <NeonLight
             color="bg-neon2"
-            size={400}
-            className="bottom-[-250px] left-[-200px] md:left-[300px]"
+            size={500}
+            className="top-[200px] right-[-300px]"
+          />
+          <NeonLight
+            color="bg-neon4"
+            size={500}
+            className="top-[1100px] left-[-350px]"
           />
           <NeonLight
             color="bg-neon3"
-            size={500}
-            className="top-[200px] right-[-400px]"
+            size={400}
+            className="top-[2000px] right-[600px]"
           />
           <NeonLight
-            color="md:bg-neon4"
-            size={300}
-            className="top-[60px] right-[350px]"
+            color="bg-neon1"
+            size={500}
+            className="top-[2900px] right-[-350px]"
+          />
+          <NeonLight
+            color="bg-neon5"
+            size={500}
+            className="bottom-[-350px] left-[-200px] md:left-[200px]"
           />
         </div>
 
@@ -46,6 +62,7 @@ export default function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/journey" element={<Journey />} />
           </Routes>
+          <Banner />
         </div>
       </section>
     </Router>

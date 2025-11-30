@@ -31,4 +31,12 @@ export const neonColors = [
     border: "border-neon4/15",
     text: "text-neon4",
   },
+  {
+    key: "neon5",
+    bg: "bg-neon5",
+    bgSoft: "bg-neon5/10",
+    hoverBg: "hover:bg-neon5/15",
+    border: "border-neon5/15",
+    text: "text-neon5",
+  },
 ];

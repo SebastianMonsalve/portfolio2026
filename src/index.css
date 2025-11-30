@@ -6,9 +6,10 @@
   --color-neonWhite: #ffffff;
   --color-neonGray: #cccccc;
   --color-neon1: #ff003c;
-  --color-neon2: #00ffe7;
-  --color-neon3: #ff9d00;
-  --color-neon4: #ff41e1;
+  --color-neon2: #ff9d00;
+  --color-neon3: #ff41e1;
+  --color-neon4: #00ff94;
+  --color-neon5: #00ffe7;
 }
 
 .grainy-overlay::before {

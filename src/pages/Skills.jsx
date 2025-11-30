@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { skillsByGroup } from "../data/skillsData.js";
 import { neonColors } from "../data/colors.js";
+import Title from "../components/Title.jsx";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
@@ -29,7 +30,8 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-[calc(100vh-4rem)] mt-8 md:mt-16 pt-16 flex flex-col items-center px-4 gap-4">
+    <section className="w-full min-h-[calc(100vh-4rem)] mt-16 md:mt-20 flex flex-col items-center px-4 gap-10">
+      <Title text="Skills" />
       {Object.entries(skillsByGroup).map(([groupName, groupSkills], groupI) => (
         <div
           key={groupI}

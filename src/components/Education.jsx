@@ -1,61 +1,47 @@
 import React, { useState } from "react";
-import { ArrowSquareRight } from "phosphor-react";
 import TagList from "./TagList.jsx";
 import { neonColors } from "../data/colors.js";
 
-const Experiences = ({ experience, index }) => {
+const Education = ({ education, index }) => {
   const color = neonColors[index % neonColors.length];
-
   return (
     <section className="w-full h-auto flex flex-col items-center mt-4">
       <article className="w-full md:w-[90%] lg:w-[65%] flex flex-col items-start">
         <div className="w-full md:grid md:grid-cols-2 relative">
-          <article className="w-full flex flex-col gap-2 md:gap-4 mb-4 md:mb-0 md:p-4">
+          <article className="w-full flex flex-col gap-2 md:gap-2 mb-4 md:mb-0 md:p-4">
             <a
-              href={experience.linkCompany}
+              href={education.linkEntity}
               target="_blank"
               rel="noopener noreferrer"
               className="w-30 md:w-40 relative overflow-hidden cursor-pointer group"
             >
               <img
-                src={experience.logoCompany}
-                alt={experience.company}
+                src={education.logoEntity}
+                alt={education.entity}
                 className="w-full h-full object-cover brightness-0 invert group-hover:opacity-90"
                 title="Visit Official Website"
               />
             </a>
             <h2 className="text-neonGray font-medium uppercase text-sm md:text-lg">
-              {experience.company}
+              {education.entity}
             </h2>
-            <h1 className="text-neonWhite font-bold text-2xl md:text-4xl ">
-              {experience.role}
+            <h1 className="text-neonWhite font-bold text-xl md:text-2xl ">
+              {education.title}
             </h1>
+          </article>
+          <article className="w-full flex flex-col gap-2 md:gap-4 mb-6 md:mb-0 justify-center">
             <TagList
-              items={experience.info}
+              items={education.info}
               wrapperClass="flex flex-row gap-2 flex-wrap"
               itemClass="px-4 py-2"
               bgClass={`${color.bg} opacity-20 saturate-40`}
               textClass={`${color.text} text-xs md:text-sm font-medium`}
             />
-          </article>
-          <article className="w-full flex flex-col gap-2 md:gap-4 mb-6 md:mb-0 justify-center">
             <div className="flex flex-col gap-2 text-neonWhite text-base md:text-xl">
-              {experience.contributions.map((line, i) => (
-                <span key={i} className="text-neonWhite text-base md:text-xl">
-                  <ArrowSquareRight
-                    className={`${color.text} inline mr-2 mb-1`}
-                  />
-                  {line}
-                </span>
-              ))}
+              <p className="text-neonWhite text-base md:text-xl">
+                {education.description}
+              </p>
             </div>
-            <TagList
-              items={experience.skills}
-              wrapperClass="w-full flex flex-row flex-wrap gap-1"
-              itemClass="w-auto px-3 py-1 flex items-center justify-center"
-              bgClass="bg-neonGray/20"
-              textClass="text-xs md:text-sm text-neonWhite"
-            />
           </article>
         </div>
       </article>
@@ -63,4 +49,4 @@ const Experiences = ({ experience, index }) => {
   );
 };
 
-export default Experiences;
+export default Education;

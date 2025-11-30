@@ -23,7 +23,9 @@ const ProjectSlider = ({
 
   const selectedMedia = media[currentIndex] || "";
   const isVideo =
-    selectedMedia.endsWith(".mp4") || selectedMedia.endsWith(".webm");
+    selectedMedia.endsWith(".mp4") ||
+    selectedMedia.endsWith(".webm") ||
+    selectedMedia.endsWith(".gif");
 
   const nextSlide = useCallback(
     (delta = 1) => {
@@ -174,7 +176,10 @@ const ProjectSlider = ({
           }}
         >
           {media.map((src, i) => {
-            const isVid = src.endsWith(".mp4") || src.endsWith(".webm");
+            const isVid =
+              src.endsWith(".mp4") ||
+              src.endsWith(".webm") ||
+              selectedMedia.endsWith(".gif");
 
             return (
               <div
@@ -211,7 +216,10 @@ const ProjectSlider = ({
         className="w-full flex gap-2 overflow-x-auto no-scrollbar flex-nowrap"
       >
         {media.map((src, i) => {
-          const isVid = src.endsWith(".mp4");
+          const isVid =
+            src.endsWith(".mp4") ||
+            src.endsWith(".webm") ||
+            src.endsWith(".gif");
           const active = currentIndex === i;
 
           return (

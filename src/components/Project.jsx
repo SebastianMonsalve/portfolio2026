@@ -4,6 +4,7 @@ import ProjectSlider from "./ProjectSlider.jsx";
 import ProjectLinkIcon from "./ProjectLinkIcon.jsx";
 import TagList from "./TagList.jsx";
 import { neonColors } from "../data/colors.js";
+import iconMap from "../data/iconMap.js";
 
 const Project = ({ project, index }) => {
   const media = project.media || [];
@@ -58,27 +59,20 @@ const Project = ({ project, index }) => {
             textClass="text-xs md:text-sm text-neonWhite"
           />
           <div className="flex flex-row gap-2">
-            <ProjectLinkIcon
-              href={project.links?.figma}
-              Icon={FigmaLogo}
-              bgClass={color.bg}
-              textClass={color.text}
-              title="Figma Prototype"
-            />
-            <ProjectLinkIcon
-              href={project.links?.github}
-              Icon={GithubLogo}
-              bgClass={color.bg}
-              textClass={color.text}
-              title="GitHub Repository"
-            />
-            <ProjectLinkIcon
-              href={project.links?.web}
-              Icon={ArrowSquareOut}
-              bgClass={color.bg}
-              textClass={color.text}
-              title="Visit Website"
-            />
+            {project.links?.map((link, i) => {
+              const IconComponent = iconMap[link.icon];
+              if (!IconComponent) return null;
+              return (
+                <ProjectLinkIcon
+                  key={i}
+                  href={link.url}
+                  Icon={IconComponent}
+                  bgClass={color.bg}
+                  textClass={color.text}
+                  title={link.title}
+                />
+              );
+            })}
           </div>
         </div>
       </article>
