@@ -127,7 +127,7 @@ export const projects = [
     links: [
       {
         title: "Visit Website",
-        url: "https://mivozescrita.netlify.app/",
+        url: "https://silentkernel.netlify.app/",
         icon: "ArrowSquareOut",
       },
     ],
