@@ -103,7 +103,7 @@ export const projects = [
 
   {
     id: "5",
-    subtitle: "Interactive blog platform: Mi Voz Escrita",
+    subtitle: "Interactive blog platform: Silent Kernel",
     title:
       "Realtime Publishing Platform with Rich Text Editing, Filtering, and User Interaction",
     role: ["Full Stack Developer"],
@@ -118,8 +118,11 @@ export const projects = [
     description:
       "Blog platform with rich text editing, images, categories, real-time updates, comments with emojis, post filtering, and a minimal, clean interface.",
     media: [
-      "/projects/project5/project1 (9).mp4",
-      "/projects/project5/mi-voz-escrita1.webp",
+      "/projects/project5/silent-kernelvideo1.mp4",
+      "/projects/project5/silent-kernel1.webp",
+      "/projects/project5/silent-kernel2.webp",
+      "/projects/project5/silent-kernel3.webp",
+      "/projects/project5/silent-kernel4.webp",
     ],
     links: [
       {
