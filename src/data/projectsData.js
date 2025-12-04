@@ -57,8 +57,11 @@ export const projects = [
     description:
       "Landing page showcasing Code Journey’s features with visual highlights, onboarding sections, progress elements, and a direct APK download.",
     media: [
-      "/projects/project3/project1 (9).mp4",
       "/projects/project3/landing-code-journey1.webp",
+      "/projects/project3/landing-code-journey2.webp",
+      "/projects/project3/landing-code-journey3.webp",
+      "/projects/project3/landing-code-journey4.webp",
+      "/projects/project3/landing-code-journey5.webp",
     ],
     links: [
       {
@@ -84,8 +87,11 @@ export const projects = [
     description:
       "Mobile app that teaches programming through interactive lessons, gamified challenges, achievements, rankings, and fully designed UI components.",
     media: [
-      "/projects/project4/project1 (9).mp4",
       "/projects/project4/code-journey1.webp",
+      "/projects/project4/code-journey2.webp",
+      "/projects/project4/code-journey3.webp",
+      "/projects/project4/code-journey4.webp",
+      "/projects/project4/code-journey5.webp",
     ],
     links: [
       {
