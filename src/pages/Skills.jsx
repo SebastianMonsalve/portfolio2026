@@ -11,6 +11,7 @@ const Skills = () => {
 
   useEffect(() => {
     document.title = "Skills | Sebastian Monsalve";
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {

@@ -8,8 +8,11 @@ export const projects = [
     description:
       "Multimedia gallery for organizing photos and videos, marking favorites, restoring deleted items, and managing account recovery with a smooth user experience.",
     media: [
-      "/projects/project1/project1 (9).mp4",
       "/projects/project1/pixme1.webp",
+      "/projects/project1/pixme2.webp",
+      "/projects/project1/pixme3.webp",
+      "/projects/project1/pixme4.webp",
+      "/projects/project1/pixme5.webp",
     ],
     links: [
       {
@@ -35,8 +38,16 @@ export const projects = [
     description:
       "Restaurant POS system with staff profiles, secure login, payment tracking, PDF invoices, and inventory reports exportable to PDF and Excel.",
     media: [
-      "/projects/project2/project1 (9).mp4",
       "/projects/project2/elite1.webp",
+      "/projects/project2/elite2.webp",
+      "/projects/project2/elite3.webp",
+      "/projects/project2/elite4.webp",
+      "/projects/project2/elite5.webp",
+      "/projects/project2/elite6.webp",
+      "/projects/project2/elite7.webp",
+      "/projects/project2/elite8.webp",
+      "/projects/project2/elite9.webp",
+      "/projects/project2/elitevideo1.webm",
     ],
     links: [
       {
@@ -83,7 +94,14 @@ export const projects = [
     title:
       "Interactive Mobile Application for Learning Programming Through Gamified Lessons",
     role: ["Frontend Developer", "UI/UX Designer"],
-    technologies: ["React Native", "JavaScript", "Redux Toolkit", "Figma"],
+    technologies: [
+      "React Native",
+      "Expo",
+      "JavaScript",
+      "Redux Toolkit",
+      "Cloudinary",
+      "Figma",
+    ],
     description:
       "Mobile app that teaches programming through interactive lessons, gamified challenges, achievements, rankings, and fully designed UI components.",
     media: [
@@ -124,11 +142,11 @@ export const projects = [
     description:
       "Blog platform with rich text editing, images, categories, real-time updates, comments with emojis, post filtering, and a minimal, clean interface.",
     media: [
-      "/projects/project5/silent-kernelvideo1.mp4",
       "/projects/project5/silent-kernel1.webp",
       "/projects/project5/silent-kernel2.webp",
       "/projects/project5/silent-kernel3.webp",
       "/projects/project5/silent-kernel4.webp",
+      "/projects/project5/silent-kernelvideo1.mp4",
     ],
     links: [
       {
@@ -149,7 +167,6 @@ export const projects = [
     description:
       "AI assistant that generates scripts, posts, emails, business ideas, code snippets, translations and customizable prompts, user-friendly interface.",
     media: [
-      "/projects/project6/mentoriavideo1.mp4",
       "/projects/project6/mentoria1.webp",
       "/projects/project6/mentoria2.webp",
     ],
@@ -177,11 +194,11 @@ export const projects = [
     description:
       "Landing page presenting digital services, projects, company values, and a contact form linked to email. Includes strategic call-to-actions, Google Analytics integration, and a clean, modern design.",
     media: [
-      "/projects/project7/digitalvideo1.mp4",
       "/projects/project7/digital1.webp",
       "/projects/project7/digital2.webp",
       "/projects/project7/digital3.webp",
       "/projects/project7/digital4.webp",
+      "/projects/project7/digitalvideo1.mp4",
     ],
     links: [
       {

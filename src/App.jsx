@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import NeonLight from "./components/NeonLight.jsx";
 import Nav from "./components/Nav.jsx";
 import Home from "./pages/Home.jsx";
@@ -6,6 +7,7 @@ import About from "./pages/About.jsx";
 import Skills from "./pages/Skills.jsx";
 import Journey from "./pages/Journey.jsx";
 import Banner from "./components/Banner.jsx";
+import ScrollButton from "./components/ScrollButton.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -63,6 +65,7 @@ export default function App() {
             <Route path="/journey" element={<Journey />} />
           </Routes>
           <Banner />
+          <ScrollButton />
         </div>
       </section>
     </Router>

@@ -52,9 +52,7 @@ const Hero = () => {
             className="w-auto px-4 py-2 relative rounded-lg overflow-hidden flex items-center justify-center hover:bg-neonGray/10"
           >
             <div className="absolute w-full h-full bg-neonGray/20"></div>
-            <h1 className="text-sm md:text-base text-neonWhite">
-              View Projects
-            </h1>
+            <h1 className="text-xl md:text-xl text-neonWhite">View Projects</h1>
           </NavLink>
         </div>
       </div>

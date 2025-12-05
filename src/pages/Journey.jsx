@@ -9,6 +9,7 @@ import Title from "../components/Title.jsx";
 const journey = () => {
   useEffect(() => {
     document.title = "Journey | Sebastian Monsalve";
+    window.scrollTo(0, 0);
   }, []);
   return (
     <section className="w-full min-h-[calc(100vh-4rem)] mt-16 md:mt-20 flex flex-col items-center px-4 gap-10">

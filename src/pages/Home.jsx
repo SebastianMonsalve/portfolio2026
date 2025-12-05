@@ -4,6 +4,7 @@ import Hero from "../components/Hero.jsx";
 const Home = () => {
   useEffect(() => {
     document.title = "Sebastian Monsalve";
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="w-full min-h-[calc(100vh-4rem)] pt-16">
