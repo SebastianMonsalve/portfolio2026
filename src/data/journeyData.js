@@ -119,4 +119,14 @@ export const courses = [
     linkCourse:
       "https://res.cloudinary.com/do5p6sjat/image/upload/v1764528712/Portfolio%20Certifications/Certificado_IA_para_todos_-_Sebastian_Monsalve_qmk7m4.pdf",
   },
+  {
+    id: "7",
+    logoEntity: "/journey/education/polilogo.webp",
+    entity: "Politécnico GranColombiano",
+    linkEntity: "www.poli.edu.co",
+    title: "Digital Marketing Workshop",
+    info: ["2025"],
+    linkCourse:
+      "https://res.cloudinary.com/do5p6sjat/image/upload/v1765333571/Portfolio%20Certifications/Certificado_Marketing_Digital_-_Sebastian_Monsalve_b2ppsq.pdf",
+  },
 ];

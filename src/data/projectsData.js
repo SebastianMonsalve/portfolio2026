@@ -154,6 +154,11 @@ export const projects = [
         url: "https://silentkernel.netlify.app/",
         icon: "ArrowSquareOut",
       },
+      {
+        title: "GitHub Repository",
+        url: "https://github.com/SebastianMonsalve/mivozescrita-blog",
+        icon: "GithubLogo",
+      },
     ],
   },
 
