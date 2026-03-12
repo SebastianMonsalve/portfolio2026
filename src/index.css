@@ -74,6 +74,17 @@ button {
   }
 }
 
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -81,4 +92,9 @@ button {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+body::selection {
+  background: #00ff9d;
+  color: #000;
 }

@@ -18,7 +18,12 @@ const ProjectLinkIcon = ({ href, Icon, bgClass, textClass, title, text }) => {
           {text}
         </p>
       ) : (
-        <Icon className={`${textClass} text-2xl md:text-3xl relative z-10`} />
+        <p className="flex items-center relative z-10 gap-2">
+          {title === "Visit Website" && (
+            <span className={`${textClass} ml-2`}>View</span>
+          )}
+          <Icon className={`${textClass} text-2xl md:text-3xl relative z-10`} />
+        </p>
       )}
     </a>
   );

@@ -3,6 +3,7 @@ import { InView } from "react-intersection-observer";
 import Project from "../components/Project.jsx";
 import { projects } from "../data/projectsData.js";
 import Title from "../components/Title.jsx";
+import Banner from "../components/Banner.jsx";
 
 const Work = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const Work = () => {
           )}
         </InView>
       ))}
+      <Banner />
     </section>
   );
 };

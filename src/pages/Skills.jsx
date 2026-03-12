@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { skillsByGroup } from "../data/skillsData.js";
 import { neonColors } from "../data/colors.js";
 import Title from "../components/Title.jsx";
+import Banner from "../components/Banner.jsx";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
@@ -102,6 +103,7 @@ const Skills = () => {
           </div>
         </div>
       ))}
+      <Banner />
     </section>
   );
 };

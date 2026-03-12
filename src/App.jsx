@@ -6,7 +6,6 @@ import Work from "./pages/Work.jsx";
 import About from "./pages/About.jsx";
 import Skills from "./pages/Skills.jsx";
 import Journey from "./pages/Journey.jsx";
-import Banner from "./components/Banner.jsx";
 import ScrollButton from "./components/ScrollButton.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -64,7 +63,6 @@ export default function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/journey" element={<Journey />} />
           </Routes>
-          <Banner />
           <ScrollButton />
         </div>
       </section>

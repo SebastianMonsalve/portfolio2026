@@ -14,7 +14,7 @@ const Hero = () => {
         <h1 className="font-medium text-xl md:text-2xl">Software Engineer</h1>
         <h1 className="font-bold text-3xl md:text-5xl">Sebastian Monsalve</h1>
         <p className="font-light text-sm md:text-base text-neonGray">
-          Frontend & Mobile Developer
+          Building things with code
         </p>
         <article className="flex flex-row items-center justify-center gap-6">
           <a
@@ -36,7 +36,7 @@ const Hero = () => {
             <GithubLogo weight="fill" />
           </a>
           <a
-            href="https://www.instagram.com/sebastianmonsalve_16/"
+            href="https://www.instagram.com/sebastiannmonsalve/"
             className="text-neonGray hover:text-neonWhite text-3xl md:text-4xl cursor-pointer"
             target="_blank"
             rel="noopener noreferrer"
@@ -52,7 +52,7 @@ const Hero = () => {
             className="w-auto px-4 py-2 relative rounded-lg overflow-hidden flex items-center justify-center hover:bg-neonGray/10"
           >
             <div className="absolute w-full h-full bg-neonGray/20"></div>
-            <h1 className="text-xl md:text-xl text-neonWhite">View Projects</h1>
+            <h1 className="text-lg md:text-xl text-neonWhite">View Projects</h1>
           </NavLink>
         </div>
       </div>

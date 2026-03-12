@@ -5,6 +5,7 @@ import Experiences from "../components/Experiences.jsx";
 import Education from "../components/Education.jsx";
 import Courses from "../components/Courses.jsx";
 import Title from "../components/Title.jsx";
+import Banner from "../components/Banner.jsx";
 
 const journey = () => {
   useEffect(() => {
@@ -55,6 +56,7 @@ const journey = () => {
           )}
         </InView>
       ))}
+      <Banner />
     </section>
   );
 };
