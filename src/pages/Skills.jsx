@@ -61,14 +61,14 @@ const Skills = () => {
                   onClick={() => setActiveIndex(isActive ? null : index)}
                   className={`group w-25 h-25 sm:w-30 sm:h-30 md:w-35 md:h-35 
                     flex items-center justify-center 
-                    rounded-lg p-6 transition-colors duration-300 border select-none
+                    rounded-lg p-4 transition-colors duration-300 border select-none
                     ${color.bgSoft} ${color.border} ${color.hoverBg} cursor-pointer`}
                 >
                   <img
                     src={`/skills/${name}.svg`}
                     alt={`${name} logo`}
                     draggable="false"
-                    className={`w-full h-full object-cover duration-300
+                    className={`w-[80%] h-auto object-cover duration-300
                       ${
                         isActive
                           ? "grayscale-0"

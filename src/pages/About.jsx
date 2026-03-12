@@ -4,7 +4,8 @@ import {
   randomThings,
   photography,
 } from "../data/aboutData.js";
-import Title from "../components/Title";
+import Title from "../components/Title.jsx";
+import CallToAction from "../components/CallToAction.jsx";
 import { XSquare } from "phosphor-react";
 import Banner from "../components/Banner.jsx";
 
@@ -88,7 +89,7 @@ const About = () => {
                 loading="lazy"
                 decoding="async"
                 onClick={() => setSelectedImage(photo)}
-                className="w-full object-cover cursor-pointer transition-transform duration-700 hover:scale-108"
+                className="w-full object-cover cursor-zoom-in transition-transform duration-700 hover:scale-108"
               />
             </div>
           ))}
@@ -121,6 +122,7 @@ const About = () => {
         Curiosity, technology, and many ideas. <br /> Some already exist. Others
         are still on the way.
       </p>
+      <CallToAction />
       <Banner />
     </section>
   );

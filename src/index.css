@@ -16,7 +16,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/noise.png");
+  background-image: url("/noise.webp");
   opacity: 0.5;
   pointer-events: none;
   mix-blend-mode: soft-light;
@@ -62,7 +62,7 @@ button {
 @keyframes neonPulse {
   0% {
     opacity: 0.4;
-    transform: scale(1);
+    transform: scale(1.1);
   }
   50% {
     opacity: 0.5;
@@ -70,7 +70,7 @@ button {
   }
   100% {
     opacity: 0.4;
-    transform: scale(1);
+    transform: scale(1.1);
   }
 }
 

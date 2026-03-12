@@ -1,7 +1,13 @@
 export const skillsByGroup = {
-  "Programming Languages": ["Csharp", "Python", "JavaScript", "HTML", "CSS"],
+  "Programming Languages": ["Csharp", "Python", "JavaScript"],
 
-  "Frontend & Backend Development": ["React", "Node.js", "Tailwind CSS"],
+  "Frontend & Backend Development": [
+    "HTML y CSS",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Tailwind CSS",
+  ],
 
   "Mobile App Development": ["React Native"],
 
@@ -13,6 +19,7 @@ export const skillsByGroup = {
     "Postman",
     "Azure DevOps",
   ],
+  "Data Analysis": ["Excel", "Power BI", "SAP"],
 
   "Design & Prototyping": ["Figma", "Photoshop"],
 };

@@ -1,11 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "../data/contactData.js";
 import {
   LinkedinLogo,
   GithubLogo,
   InstagramLogo,
   CaretDown,
 } from "phosphor-react";
+
+const linkedin = connect.find((item) => item.name === "LinkedIn");
+const github = connect.find((item) => item.name === "GitHub");
+const instagram = "https://www.instagram.com/sebastiannmonsalve/";
 
 const Hero = () => {
   return (
@@ -18,7 +23,7 @@ const Hero = () => {
         </p>
         <article className="flex flex-row items-center justify-center gap-6">
           <a
-            href="https://www.linkedin.com/in/sebastianmonsalve16/"
+            href={linkedin?.url}
             className="text-neonGray hover:text-neonWhite text-3xl md:text-4xl cursor-pointer"
             target="_blank"
             rel="noopener noreferrer"
@@ -27,7 +32,7 @@ const Hero = () => {
             <LinkedinLogo weight="fill" />
           </a>
           <a
-            href="https://github.com/SebastianMonsalve/"
+            href={github?.url}
             className="text-neonGray hover:text-neonWhite text-3xl md:text-4xl cursor-pointer"
             target="_blank"
             rel="noopener noreferrer"
@@ -36,7 +41,7 @@ const Hero = () => {
             <GithubLogo weight="fill" />
           </a>
           <a
-            href="https://www.instagram.com/sebastiannmonsalve/"
+            href={instagram}
             className="text-neonGray hover:text-neonWhite text-3xl md:text-4xl cursor-pointer"
             target="_blank"
             rel="noopener noreferrer"
@@ -46,7 +51,7 @@ const Hero = () => {
           </a>
         </article>
         <div className="w-full flex flex-col gap-4 absolute items-center bottom-18 md:bottom-10">
-          <CaretDown className="bottom-6 text-3xl md:text-4xl cursor-pointer translate-y-2 animate-bounce" />
+          <CaretDown className="bottom-6 text-3xl md:text-4xl translate-y-2 animate-bounce" />
           <NavLink
             to="/work"
             className="w-auto px-4 py-2 relative rounded-lg overflow-hidden flex items-center justify-center hover:bg-neonGray/10"
