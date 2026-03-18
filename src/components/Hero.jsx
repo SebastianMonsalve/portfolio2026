@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { connect } from "../data/contactData.js";
+import { connect, social } from "../data/contactData.js";
 import {
   LinkedinLogo,
   GithubLogo,
@@ -10,7 +10,8 @@ import {
 
 const linkedin = connect.find((item) => item.name === "LinkedIn");
 const github = connect.find((item) => item.name === "GitHub");
-const instagram = "https://www.instagram.com/sebastiannmonsalve/";
+const instagram = social.find((item) => item.name === "Instagram");
+const resume = connect.find((item) => item.name === "Resume");
 
 const Hero = () => {
   return (
@@ -41,7 +42,7 @@ const Hero = () => {
             <GithubLogo weight="fill" />
           </a>
           <a
-            href={instagram}
+            href={instagram?.url}
             className="text-neonGray hover:text-neonWhite text-3xl md:text-4xl cursor-pointer"
             target="_blank"
             rel="noopener noreferrer"
@@ -52,13 +53,16 @@ const Hero = () => {
         </article>
         <div className="w-full flex flex-col gap-4 absolute items-center bottom-18 md:bottom-10">
           <CaretDown className="bottom-6 text-3xl md:text-4xl translate-y-2 animate-bounce" />
-          <NavLink
-            to="/work"
+          <a
+            href={resume?.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Resume - Curriculum"
             className="w-auto px-4 py-2 relative rounded-lg overflow-hidden flex items-center justify-center hover:bg-neonGray/10"
           >
             <div className="absolute w-full h-full bg-neonGray/20"></div>
-            <h1 className="text-lg md:text-xl text-neonWhite">View Projects</h1>
-          </NavLink>
+            <h1 className="text-lg md:text-xl text-neonWhite">View Resume</h1>
+          </a>
         </div>
       </div>
     </section>
